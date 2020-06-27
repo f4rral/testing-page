@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Каталог корпусных фрез</title>
+
+    <link rel="stylesheet" type="text/css" href="../styles/cutterbody-catalog.css">
+    <link rel="stylesheet" type="text/css" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Scada:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <!-- HEADER-->
+    <header class="main-header">
+      <div class="main-header-wrapper">
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="inner-page main-content main-container">
+      <h1 class="main-title">Корпусные фрезы</h1>
+
+      <div class="wraper-sticky">
+        <section class="filters">
+          <form class="filter" name="formQuery" onsubmit="return false">
+            <fieldset class="search-box">
+              <input class="input input-search" id="etDesignation" onkeyup="getNotesTimeout()" type="text" autocomplete="off" placeholder="Обозначение">
+              <button class="button button-search" type="button" onclick="getNotes()">Найти</button>
+            </fieldset>
+
+            <input class="filter-access" id="cbFilterAccess" type="checkbox">
+            <label class="label-filter-access" for="cbFilterAccess">фильтры</label>
+            
+            <ul class="main-filter-list">
+              <li class="main-filter-item">
+                <fieldset class="input-execution">
+                  <label class="label" for="etExecution">Серия:</label>
+                  <select class="input input-select" id="etExecution" onchange="getNotesTimeout()">
+                    <option value="">показать всё</option>
+                    <option value="MT1">концевые фрезы MT1...</option>
+                    <option value="MT2">торцовые фрезы MT2...</option>
+                    <option value="MT3">дисковые фрезы MT3...</option>
+                  </select>
+                </fieldset>
+              </li>
+
+              <li class="main-filter-item">
+                <fieldset class="input-angle-in-plan">
+                  <label class="label" for="etAngleInPlan">Угол в плане:</label>
+                  <select class="input input-select" id="etAngleInPlan" onchange="getNotesTimeout()">
+                    <option value="">показать всё</option>
+                    <option value="0">0</option>
+                    <option value="15">15</option>
+                    <option value="45">45</option>
+                    <option value="60">60</option>
+                    <option value="70">70</option>
+                    <option value="89">89</option>
+                    <option value="90">90</option>
+                  </select>
+                </fieldset>
+              </li>
+
+              <li class="main-filter-item">
+                <fieldset class="input-diameter">
+                  <label class="label" for="etDiameter">Диаметр:</label>
+                  <select class="input input-select" id="etDiameter" onchange="getNotesTimeout()">
+                    <option value="">показать всё</option>
+                    <option value="20">20</option>
+                    <option value="22">22</option>
+                    <option value="25">25</option>
+                    <option value="30">30</option>
+                    <option value="32">32</option>
+                    <option value="35">35</option>
+                    <option value="40">40</option>
+                    <option value="42">42</option>
+                    <option value="50">50</option>
+                    <option value="50.8">50.8</option>
+                    <option value="54">54</option>
+                    <option value="63">63</option>
+                    <option value="66">66</option>
+                    <option value="80">80</option>
+                    <option value="100">100</option>
+                    <option value="125">125</option>              
+                    <option value="160">160</option>
+                    <option value="200">200</option>
+                    <option value="250">250</option>
+                    <option value="315">315</option>
+                    <option value="500">500</option>
+                    <option value="710">710</option>
+                  </select>
+                </fieldset>
+              </li>
+
+              <li class="main-filter-item">
+                <fieldset class="input-execution-cutting-part">
+                  <label class="label" for="etExecutionCuttingPart">Режущая часть:</label>
+                  <select class="input input-select" id="etExecutionCuttingPart" onchange="getNotesTimeout()">
+                    <option value="">показать всё</option>
+                    <option value="F">для получения фасок</option>
+                    <option value="T">для Т-образных пазов</option>
+                    <option value="L">длиннокромочная фреза</option>
+                    <option value="K">кассетнoe исполнение</option>
+                    <option value="B">с возможностью сверления</option>
+                  </select>
+                </fieldset>
+              </li>
+
+              <li class="main-filter-item">
+                <fieldset class="input-type-size-insert">
+                  <label class="label" for="etTypeSizeInsert">Пластина:</label>
+                  <select class="input input-select" id="etTypeSizeInsert" onchange="getNotesTimeout()">
+                    <option value="">показать всё</option>
+                    <option value="AX14">AX14</option>
+                    <option value="BD08">BD08</option>
+                    <option value="BD10">BD10</option>
+                    <option value="BD12">BD12</option>
+                    <option value="BD16">BD16</option>
+                    <option value="BO12">BO12</option>
+                    <option value="FO09">FO09</option>
+                    <option value="FO12">FO12</option>
+                    <option value="LN13">LN13</option>
+                    <option value="RD08">RD08</option>
+                    <option value="RD10">RD10</option>
+                    <option value="RD12">RD12</option>
+                    <option value="RD16">RD16</option>
+                    <option value="RD20">RD20</option>
+                    <option value="SD08">SD08</option>
+                    <option value="SN12">SN12</option>
+                    <option value="SN13">SN13</option>
+                    <option value="SO09">SO09</option>
+                    <option value="SO12">SO12</option>
+                    <option value="XE17">XE17</option>
+                  </select>
+                </fieldset>
+              </li>
+
+              <li class="main-filter-item">
+                <fieldset class="input-type-size-insert">
+                  <label class="label" for="etConnection">Посадка:</label>
+                  <select class="input input-select" id="etConnection" onchange="getNotesTimeout()">
+                    <option value="">показать всё</option>
+                    <option value="FDA22">форма A</option>
+                    <option value="FDA12">форма B</option>
+                    <option value="SPK01">форма C40</option>
+                    <option value="SPK02">форма C60</option>
+                    <option value="SPK05">форма D</option>
+                    <option value="ZYL04">форма G</option>
+                    <option value="FDA01">форма S</option>
+                    <option value="CCS01">форма Capto</option>
+                    <option value="HSK01">HSK тип A</option>
+                    <option value="HSK04">HSK тип F</option>
+                    <option value="MKG10">MK конус Морзе</option>
+                    <option value="SKG10">NC без каналов СОЖ</option>
+                    <option value="SKG11">NC с каналами СОЖ</option>
+                    <option value="SKG20">SK метрический конус</option>
+                    <option value="ZYL01">Z цилин-кая </option>
+                    <option value="ZYL10">W цилин-кая с Weldon</option>
+                    <option value="ZYL14">WN цилин-кая с Weldon и Whistle Notch</option>
+                  </select>
+                </fieldset>
+              </li>
+            </ul>
+
+            <div class="additional-filters-list"></div>
+          </form>
+        </section>
+        
+        <p class="brief"></p>
+      </div>
+      <table class="table-tools">
+        <thead class="table-header">
+          <tr class="table-head-row" role="row">
+            <th class="table-head-cell designation">
+              <input class="input-sort" id="sortDesignation" type="checkbox" onchange="getSort(this), getNotes()">
+              <label class="label-sort" for="sortDesignation">
+                <span>Обозначание</span>
+              </label>
+            </th>
+            <th class="table-head-cell diameter">
+              <input class="input-sort" id="sortDiameter" type="checkbox" onchange="getSort(this), getNotes()">
+              <label class="label-sort" for="sortDiameter">
+                <span>Диаметр</span>
+              </label>
+            </th>
+            <th class="table-head-cell number-teeth">
+              <input class="input-sort" id="sortNumberTeeth" type="checkbox" onchange="getSort(this), getNotes()">
+              <label class="label-sort" for="sortNumberTeeth">
+                <span>Число зубьев</span>
+              </label>
+            </th>
+            <th class="table-head-cell connection">
+              <input class="input-sort" id="sortConnection" type="checkbox" onchange="getSort(this), getNotes()">
+              <label class="label-sort" for="sortConnection">
+                <span>Посадка</span>
+              </label>
+            </th>
+            <th class="table-head-cell max-cutting-depth">
+              <input class="input-sort" id="sortMaxCuttingDepth" type="checkbox" onchange="getSort(this), getNotes()">
+              <label class="th-span label-sort" for="sortMaxCuttingDepth">
+                <span>Макс. глубина резания</span>
+              </label>
+            </th>
+            <th class="table-head-cell main-angle-plan">
+              <input class="input-sort" id="sortMainAnglePlan" type="checkbox" onchange="getSort(this), getNotes()">
+              <label class="label-sort" for="sortMainAnglePlan">
+                <span>Угол в плане</span>
+              </label>
+            </th>
+            <th class="table-head-cell insert">
+              <input class="input-sort" id="sortInsert" type="checkbox" onchange="getSort(this), getNotes()">
+              <label class="label-sort" for="sortInsert">
+                <span>Пластина</span>
+              </label>
+            </th>
+          </tr>
+        </thead>
+        <tbody class="table-body"></tbody>
+      </table>
+      <button class="button button-show-more" id="btnShowMore" onclick="showMoreRow()">Показать ещё</button>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+      <p></p>
+    </footer>
+
+    <!-- MODAL -->
+  </body>
+
+  <script src="../scripts/table.js"></script>
+  <script src="../scripts/cutterbody-catalog.js"></script>
+</html>
